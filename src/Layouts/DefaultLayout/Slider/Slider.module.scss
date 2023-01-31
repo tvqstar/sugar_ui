@@ -1,0 +1,48 @@
+.wrapper {
+    height: var(--slider-height);
+    width: 100%;
+    margin: 66px 0 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    img{
+        width: 80vw;
+        height: calc(var(--slider-height) - var(--header-height));
+        border-radius: 20px;
+        object-fit: fill;
+        user-select: none;
+    }
+
+    .next{
+        position: absolute;
+        top: 43%;
+        transform: translateY(-50%);
+        left: 6vw;
+        z-index: 3;
+        font-size: 3rem;
+        color: var(--primary);
+    }
+
+    .prev{
+        position: absolute;
+        top: 43%;
+        right: 6vw;
+        z-index: 3;
+        font-size: 3rem;
+        color: var(--primary);
+    }
+}
+
+.slide {
+    opacity: 0;
+    transition-duration: 3s ease;
+}
+
+.slideActive {
+    opacity: 1;
+    transition-duration: 2s;
+    transform: scale(1.03);
+}
