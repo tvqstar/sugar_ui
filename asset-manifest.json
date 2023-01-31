@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/sugar_ui/static/css/main.fe238d1d.css",
+    "main.js": "/sugar_ui/static/js/main.0e5a869c.js",
+    "static/js/787.4186a7af.chunk.js": "/sugar_ui/static/js/787.4186a7af.chunk.js",
+    "static/media/slideshow_3.jpg": "/sugar_ui/static/media/slideshow_3.2c58b24f6d5f3625cf1c.jpg",
+    "static/media/slideshow_1.jpg": "/sugar_ui/static/media/slideshow_1.81e9f9644d0b68c08bc1.jpg",
+    "static/media/slideshow_2.jpg": "/sugar_ui/static/media/slideshow_2.29cd2b58084b01ea30a0.jpg",
+    "static/media/sugar_shop.jpg": "/sugar_ui/static/media/sugar_shop.7dc0b9643d3e771fd573.jpg",
+    "index.html": "/sugar_ui/index.html",
+    "main.fe238d1d.css.map": "/sugar_ui/static/css/main.fe238d1d.css.map",
+    "main.0e5a869c.js.map": "/sugar_ui/static/js/main.0e5a869c.js.map",
+    "787.4186a7af.chunk.js.map": "/sugar_ui/static/js/787.4186a7af.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe238d1d.css",
+    "static/js/main.0e5a869c.js"
+  ]
+}
