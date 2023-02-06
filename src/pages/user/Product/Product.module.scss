@@ -28,8 +28,10 @@
     line-height: 1.8rem;
     color: var(--text-color);
     overflow: hidden;
-    display: -webkit-box;
+    // display: -webkit-box;
     text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .price {
@@ -38,15 +40,15 @@
     justify-content: space-between;
 }
 
-.price-old {
+.inStock {
     margin-left: 10px;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: #888;
-    text-decoration: line-through;
+    // text-decoration: line-through;
 }
 
 .price-current {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: var(--primary);
     margin-right: 10px;
 }

@@ -10,7 +10,6 @@ import swal from 'sweetalert';
 
 const cx = classNames.bind(styles);
 function Cart() {
-    // const [count, setCount] = useState(1);
 
     const value = useContext(DataContext);
     const [cart, setCart] = value.cart;
@@ -19,7 +18,7 @@ function Cart() {
     useEffect(() => {
         const getTotal = () => {
             const res = cart.reduce((prev, item) => {
-                return prev + item.current * item.count;
+                return prev + item.price * item.count;
             }, 0);
             setTotal(res);
         };
@@ -28,7 +27,7 @@ function Cart() {
 
     const reduction = (id) => {
         cart.forEach((item) => {
-            if (item.id === id) {
+            if (item._id === id) {
                 item.count === 1
                     ? (item.count = 1) &&
                       swal({
@@ -42,7 +41,7 @@ function Cart() {
     };
     const increase = (id) => {
         cart.forEach((item) => {
-            if (item.id === id) {
+            if (item._id === id) {
                 item.count += 1;
             }
         });
@@ -59,7 +58,7 @@ function Cart() {
         }).then((willDelete) => {
             if (willDelete) {
                 cart.forEach((item, index) => {
-                    if (item.id === id) {
+                    if (item._id === id) {
                         cart.splice(index, 1);
                     }
                 });
@@ -87,27 +86,27 @@ function Cart() {
 
             <div className={cx('list-cart')}>
                 {cart.map((product) => (
-                    <div key={product.id}>
+                    <div key={product._id}>
                         <div className={cx('cart-row', 'row sm-gutter')}>
                             {/* san pham trong ham map */}
                             <div className={cx('cart-item', 'col l-2 m-4 c-6')}>
                                 <div
                                     className={cx('item-img')}
                                     style={{
-                                        backgroundImage: `url(${product.url})`,
+                                        backgroundImage: `url(${product.image})`,
                                     }}
                                 ></div>
                             </div>
 
                             <div className="col l-5 m-4 c-6">
                                 <div className={cx('item-title')}>
-                                    <h3 className={cx('item-name')}>{product.title}</h3>
-                                    <p className={cx('item-desc')}>Mô tả sản phẩm</p>
+                                    <h3 className={cx('item-name')}>{product.name}</h3>
+                                    <p className={cx('item-desc')}>{product.description}</p>
                                 </div>
                             </div>
 
                             <div className="col l-2 m-4 c-6">
-                                <button className={cx('prev')} onClick={() => reduction(product.id)}>
+                                <button className={cx('prev')} onClick={() => reduction(product._id)}>
                                     <FontAwesomeIcon icon={faMinus} />
                                 </button>
 
@@ -116,7 +115,7 @@ function Cart() {
                                 <button
                                     className={cx('next')}
                                     onClick={() => {
-                                        increase(product.id);
+                                        increase(product._id);
                                     }}
                                 >
                                     <FontAwesomeIcon icon={faPlus} />
@@ -124,11 +123,11 @@ function Cart() {
                             </div>
 
                             <div className="col l-2 m-4 c-6">
-                                <span className={cx('price')}>{`${product.current}.000đ`}</span>
+                                <span className={cx('price')}>{`${product.price}`}</span>
                             </div>
 
                             <div className="col l-1 m-4 c-6">
-                                <button className={cx('delete')} onClick={() => removeProduct(product.id)}>
+                                <button className={cx('delete')} onClick={() => removeProduct(product._id)}>
                                     <FontAwesomeIcon icon={faTrash} />
                                 </button>
                             </div>
@@ -139,12 +138,8 @@ function Cart() {
                 ))}
             </div>
 
-            <div className={cx('total-price')}>{`Tổng tiền: ${total}.000đ`}</div>
-            
-            <div>
-                <h3>Địa chỉ nhận hàng</h3>
-                <textarea></textarea>
-            </div>
+            <div className={cx('total-price')}>{`Tổng tiền: ${total}`}</div>
+
             <div className={cx('btn-cart')}>
                 <Button primary>Đặt hàng</Button>
                 <Button outline>Trở về</Button>

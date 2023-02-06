@@ -5,7 +5,7 @@ import Home from '~/pages/user/Home/Home';
 import Profile from '~/pages/user/Profile';
 import Register from '~/pages/user/Register';
 import HomeLayout from '~/Layouts/HomeLayout';
-import DefaultLayout from '~/Layouts/DefaultLayout';
+// import DefaultLayout from '~/Layouts/DefaultLayout';
 
 import Admin from '~/Layouts/Admin';
 import Cart from '~/pages/user/Cart';

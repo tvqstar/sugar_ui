@@ -1,9 +1,10 @@
 import classNames from 'classnames/bind';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 import routesConfig from '~/config/routes';
 import styles from './Register.module.scss';
@@ -15,6 +16,7 @@ function Register() {
     // const [rePwd, setRePwd] = useState('');
     const [pwdShow, setPwdShow] = useState(false);
     const [rePwdShow, setRePwdShow] = useState(false);
+    const [message, setMessage] = useState('');
 
     const {
         register,
@@ -35,13 +37,32 @@ function Register() {
     };
 
     const onSubmit = (data) => {
-        console.log(data);
+        const email = data.email;
+        const password = data.password;
+        const confirmPassword = data.rePassword;
+        axios
+            .post('https://sugarapitvq.onrender.com/api/user/sign-up', {
+                email,
+                password,
+                confirmPassword,
+            })
+            .then((res) => {
+                console.log(res);
+                setMessage(res.data.message);
+                if (res.data.status === 'ERR') {
+                    setMessage(res.data.message);
+                }
+            });
     };
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
                 <h2 className={cx('title')}>Đăng ký tài khoản</h2>
+
+                {/* Đăng ký thành công */}
+                {!!message && <h3>{message}</h3>}
+
                 <form className={cx('form-input')} onSubmit={handleSubmit(onSubmit)}>
                     <div className={cx('input-item')}>
                         <FontAwesomeIcon icon={faEnvelope} />
@@ -112,7 +133,7 @@ function Register() {
                     {errors.rePassword?.message && <span className={cx('show-err')}>{errors.rePassword?.message}</span>}
 
                     <div className={cx('button')}>
-                        <button type="submit" className={cx('button-register')} to={routesConfig.login}>
+                        <button type="submit" className={cx('button-register')}>
                             Đăng ký
                         </button>
                         <Link className={cx('button-return')} to={routesConfig.home}>

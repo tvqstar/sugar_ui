@@ -13,7 +13,7 @@ function Home() {
     return (
         <div className="row sm-gutter">
             {products.map((pr) => (
-                <Product key={pr.id} data={pr} addCart={addCart}/>
+                <Product key={pr._id} data={pr} addCart={addCart}/>
             ))}
         </div>
     );

@@ -12,20 +12,20 @@ function Product({ data, addCart }) {
     return (
         <div className="col l-2-4 m-4 c-6">
             <div className={cx('product-item')}>
-                <Link className={cx('product-link')} to={`/${data.id}`}>
+                <Link className={cx('product-link')} to={`/${data._id}`}>
                     <div
                         className={cx('imgPro')}
                         style={{
-                            backgroundImage: `url(${data.url})`,
+                            backgroundImage: `url(${data.image})`,
                         }}
                     ></div>
-                    <h4 className={cx('product-name')}>{data.title}</h4>
+                    <h4 className={cx('product-name')}>{data.name}</h4>
                     <div className={cx('price')}>
-                        <span className={cx('price-old')}>{data.old}</span>
-                        <span className={cx('price-current')}>{data.current}</span>
+                        <span className={cx('inStock')}>{`Còn ${data.countInStock} sp`}</span>
+                        <span className={cx('price-current')}>{`${data.price}đ`}</span>
                     </div>
                 </Link>
-                <Button className={cx('add-cart')} onClick={() => addCart(data.id)}>
+                <Button className={cx('add-cart')} onClick={() => addCart(data._id)}>
                     Thêm vào giỏ hàng
                 </Button>
             </div>

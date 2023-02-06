@@ -35,6 +35,12 @@
     font-size: 1.8rem;
     text-align: initial;
     color: #666;
+    height: 5.4rem;
+    line-height: 1.8rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
 
 .value {

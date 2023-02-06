@@ -43,17 +43,23 @@ function Footer() {
                         <h1 className={cx('title')}>THÔNG TIN LIÊN HỆ</h1>
                         <div className={cx('sub-title', 'sub-title-icon')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faLocationDot} />
-                            <div><span>490 Nguyễn Trãi, Thanh Xuân, Hà Nội.</span></div>
+                            <div>
+                                <span>Hà Nội.</span>
+                            </div>
                         </div>
 
                         <div className={cx('sub-title', 'sub-title-icon')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faPhone} />
-                            <div><span>0868268196</span></div>
+                            <div>
+                                <span>0123456789</span>
+                            </div>
                         </div>
 
                         <div className={cx('sub-title', 'sub-title-icon')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faEnvelope} />
-                            <div><span>sugarshop@gmail.com</span></div>
+                            <div>
+                                <span>sugarshoptvq@gmail.com</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,14 +68,8 @@ function Footer() {
                     <div className="col l-12 m-12 c-12">
                         <div className={cx('content-end')}>
                             <span>
-                                © 2022 Visitors. All rights reserved | Design by
-                                <a href="https://www.facebook.com/trantuanhiep07" target="_blank">
-                                    Trần Tuấn Hiệp
-                                </a>
-                                and
-                                <a href="https://www.facebook.com/tvq22/" target="_blank">
-                                    Tạ Văn Quyết
-                                </a>
+                                © 2022 Visitors. All rights reserved | by
+                                <a href="https://www.facebook.com/tvq22/">Tạ Văn Quyết</a>
                             </span>
                         </div>
                     </div>

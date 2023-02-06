@@ -12,15 +12,31 @@ import routesConfig from '~/config/routes';
 import Images from '~/assets/Images/Images';
 import Button from '../Button';
 import { DataContext } from '~/Provider';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const currentUser = true;
+    const [currentUser, setCurrentUser] = useState(false);
+    const getCurrentUser = () => {
+        return JSON.parse(localStorage.getItem('user'));
+    };
 
-    const value = useContext(DataContext)
-    const [cart] = value.cart
+    useEffect(() => {
+        const user = getCurrentUser();
+
+        if (user) {
+            setCurrentUser(true);
+        }
+    }, []);
+
+    const value = useContext(DataContext);
+    const [cart] = value.cart;
+
+    const logout = () => {
+        localStorage.removeItem("user");
+        window.location.reload(true);
+      };
 
     return (
         <header className={cx('wrapper')}>
@@ -61,7 +77,7 @@ function Header() {
                                             Thông tin tài khoản
                                         </Link>
 
-                                        <Link className={cx('user-link')} to={'/'}>
+                                        <Link onClick={logout} className={cx('user-link')} to={'/'}>
                                             <FontAwesomeIcon
                                                 className={cx('user-link-icon')}
                                                 icon={faRightFromBracket}
@@ -81,6 +97,13 @@ function Header() {
                         </>
                     ) : (
                         <>
+                            <Tippy delay={[0, 50]} content="Giỏ hàng" placement="bottom">
+                                <Link className={cx('cart')} to={routesConfig.cart}>
+                                    <FontAwesomeIcon className={cx('cart-icon')} icon={faCartShopping} />
+                                    <span className={cx('cart-quantity')}>{cart.length}</span>
+                                </Link>
+                            </Tippy>
+
                             <Button to={routesConfig.register} outline>
                                 Đăng ký
                             </Button>
