@@ -1,9 +1,11 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Button from '~/components/Button';
 import styles from './Product.module.scss';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 // import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
@@ -19,11 +21,20 @@ function Product({ data, addCart }) {
                             backgroundImage: `url(${data.image})`,
                         }}
                     ></div>
+
                     <h4 className={cx('product-name')}>{data.name}</h4>
+
                     <div className={cx('price')}>
                         <span className={cx('inStock')}>{`Còn ${data.countInStock} sp`}</span>
                         <span className={cx('price-current')}>{`${data.price}đ`}</span>
                     </div>
+
+                    {data.favourite === true && (
+                        <div className={cx('product-favourite')}>
+                            <FontAwesomeIcon className={cx('icon_favourite')} icon={faCheck} />
+                            <span>Yêu thích</span>
+                        </div>
+                    )}
                 </Link>
                 <Button className={cx('add-cart')} onClick={() => addCart(data._id)}>
                     Thêm vào giỏ hàng

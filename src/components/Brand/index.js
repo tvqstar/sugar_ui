@@ -1,9 +1,9 @@
-import classNames from "classnames/bind";
-import { NavLink } from "react-router-dom";
+import classNames from 'classnames/bind';
+import { NavLink } from 'react-router-dom';
 
 import styles from './Brand.module.scss';
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 function Brand() {
     return (
@@ -12,15 +12,15 @@ function Brand() {
 
             <ul className={cx('cate-list')}>
                 <li>
-                    <NavLink className={cx('list-item')}>Thương hiệu 1</NavLink>
+                    <NavLink className={cx('list-item')}>Nike</NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={cx('list-item')}>Thương hiệu 2</NavLink>
+                    <NavLink className={cx('list-item')}>Adidas</NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={cx('list-item')}>Thương hiệu 3</NavLink>
+                    <NavLink className={cx('list-item')}>MLB</NavLink>
                 </li>
             </ul>
         </div>

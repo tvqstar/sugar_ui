@@ -5,11 +5,11 @@ import Home from '~/pages/user/Home/Home';
 import Profile from '~/pages/user/Profile';
 import Register from '~/pages/user/Register';
 import HomeLayout from '~/Layouts/HomeLayout';
-// import DefaultLayout from '~/Layouts/DefaultLayout';
 
 import Admin from '~/Layouts/Admin';
 import Cart from '~/pages/user/Cart';
 import ProductDetail from '~/pages/user/ProductDetail';
+import AllProduct from '~/pages/user/AllProduct';
 
 const publicRoutes = [
     { path: routesConfig.home, component: Home, layout: HomeLayout },
@@ -17,7 +17,8 @@ const publicRoutes = [
     { path: routesConfig.login, component: Login, layout: null },
     { path: routesConfig.register, component: Register, layout: null },
     { path: routesConfig.cart, component: Cart },
-    { path: routesConfig.product, component: ProductDetail },
+    { path: routesConfig.product, component: AllProduct },
+    { path: routesConfig.productDetail, component: ProductDetail },
 ];
 
 const privateRoutes = [

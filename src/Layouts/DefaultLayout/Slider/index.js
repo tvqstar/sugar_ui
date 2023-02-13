@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 import classNames from 'classnames/bind';
 import styles from './Slider.module.scss';
@@ -24,13 +24,13 @@ function Slider() {
     const [slideCurr, setSlideCurr] = useState(0);
     const length = sliderImage.length;
 
-    const prevSlide = () => {
-        setSlideCurr(slideCurr === 0 ? length - 1 : slideCurr - 1);
-    };
+    // const prevSlide = () => {
+    //     setSlideCurr(slideCurr === 0 ? length - 1 : slideCurr - 1);
+    // };
 
-    const nextSlide = () => {
-        setSlideCurr(slideCurr === length - 1 ? 0 : slideCurr + 1);
-    };
+    // const nextSlide = () => {
+    //     setSlideCurr(slideCurr === length - 1 ? 0 : slideCurr + 1);
+    // };
 
     useEffect(() => {
         const runSlider = setTimeout(() => {
@@ -42,8 +42,8 @@ function Slider() {
 
     return (
         <div className={cx('wrapper')}>
-            <FontAwesomeIcon className={cx('next')} icon={faArrowCircleLeft} onClick={prevSlide} />
-            <FontAwesomeIcon className={cx('prev')} icon={faArrowCircleRight} onClick={nextSlide} />
+            {/* <FontAwesomeIcon className={cx('next')} icon={faArrowCircleLeft} onClick={prevSlide} />
+            <FontAwesomeIcon className={cx('prev')} icon={faArrowCircleRight} onClick={nextSlide} /> */}
             {sliderImage.map((image, index) => (
                 <div key={index} className={index === slideCurr ? cx('slideActive') : cx('slide')}>
                     {index === slideCurr && <img src={image.img} alt="slider" />}

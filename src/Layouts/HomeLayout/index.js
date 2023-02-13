@@ -12,13 +12,18 @@ function HomeLayout({ children }) {
     return (
         <div className={cx('wrapper')}>
             <Header />
-            <Slider />
-            <div className='grid wide'>
-                <div className="row sm-gutter">
-                    <div className="col l-2">
+            <div className="grid wide">
+                {/* <div className="row sm-gutter"> */}
+                <div className={cx('sidebar-slider', 'row sm-gutter')}>
+                    <div className={cx('side-bar', 'col l-2')}>
                         <SideBar />
                     </div>
-                    <div className='col l-10 m-12 c-12 '>
+                    <div className="col l-10">
+                        <Slider />
+                    </div>
+                </div>
+                <div className="row sm-gutter">
+                    <div className="col l-12 m-12 c-12 ">
                         <div className={cx('content')}>{children}</div>
                     </div>
                 </div>

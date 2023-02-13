@@ -1,9 +1,9 @@
-import classNames from "classnames/bind";
-import { NavLink } from "react-router-dom";
+import classNames from 'classnames/bind';
+import { NavLink } from 'react-router-dom';
 
-import styles from "./Category.module.scss";
+import styles from './Category.module.scss';
 
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 function Category() {
     return (
         <div className={cx('wrapper')}>
@@ -11,15 +11,19 @@ function Category() {
 
             <ul className={cx('cate-list')}>
                 <li>
-                    <NavLink className={cx('list-item')}>Danh muc 1</NavLink>
+                    <NavLink className={cx('list-item')}>Chạy</NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={cx('list-item')}>Danh muc 2</NavLink>
+                    <NavLink className={cx('list-item')}>Đá bóng</NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={cx('list-item')}>Danh muc 3</NavLink>
+                    <NavLink className={cx('list-item')}>Bóng rổ</NavLink>
+                </li>
+
+                <li>
+                    <NavLink className={cx('list-item')}>Tập luyện</NavLink>
                 </li>
             </ul>
         </div>

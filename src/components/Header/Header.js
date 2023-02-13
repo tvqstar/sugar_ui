@@ -34,9 +34,9 @@ function Header() {
     const [cart] = value.cart;
 
     const logout = () => {
-        localStorage.removeItem("user");
+        localStorage.removeItem('user');
         window.location.reload(true);
-      };
+    };
 
     return (
         <header className={cx('wrapper')}>
@@ -49,8 +49,8 @@ function Header() {
                     <Button text to={routesConfig.product}>
                         Tin tức
                     </Button>
-                    <Button text to={routesConfig.profile}>
-                        Liên hệ
+                    <Button text to={routesConfig.product}>
+                        Sản phẩm
                     </Button>
                 </div>
 
