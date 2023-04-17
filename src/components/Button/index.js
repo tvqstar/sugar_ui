@@ -71,7 +71,7 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     leftIcon: PropTypes.node,
     rightIcon: PropTypes.node,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     className: PropTypes.string,
 };
 

@@ -1,4 +1,5 @@
 .product-favourite {
+    position: relative;
     background-color: #831713;
     margin: 10px 0;
 }
@@ -109,3 +110,20 @@
 //     border-bottom-left-radius: 3px;
 //     border-bottom-right-radius: 3px;
 // }
+
+.loading-icon {
+    display: block;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    color: #fff;
+    animation: loading 1s linear infinite;
+
+    @keyframes loading {
+        from {
+            transform: translateY(-50%) rotate(0);
+        }
+        to {
+            transform: translateY(-50%) rotate(360deg);
+        }
+    }
+}

@@ -1,19 +1,23 @@
 import classNames from 'classnames/bind';
 import React, { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Button from '~/components/Button';
 import routesConfig from '~/config/routes';
 import Product from '~/components/Product';
-
 import { DataContext } from '~/Provider';
 
 import styles from './Home.module.scss';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-const cx = classNames.bind(styles);
 
 function Home() {
+    const cx = classNames.bind(styles);
+    
     const value = useContext(DataContext);
     const [pro] = value.products;
     const addCart = value.addCart;
+    const [loading] = value.loading;
 
     const products = [...pro].reverse(); //Đảo ngược phần tử trong mảng
 
@@ -22,11 +26,15 @@ function Home() {
             {/* san pham yeu thich */}
             <div className={cx('product-favourite')}>
                 <h1 className={cx('product-favourite__title')}>Sản phẩm yêu thích</h1>
-                <div className={cx('product-item', 'row sm-gutter')}>
+
+                {!loading && !!products &&(<div className={cx('product-item', 'row sm-gutter')}>
                     {products.map(
                         (pr) => pr.favourite === true && <Product key={pr._id} data={pr} addCart={addCart} />,
                     )}
-                </div>
+                </div>)}
+
+                { !!loading && <FontAwesomeIcon className={cx('loading-icon')} icon={faSpinner}/>}
+
                 <div className={cx('product-favourite__link')}>
                     <Button className={cx('btn')}>Xem tất cả sản phẩm yêu thích</Button>
                 </div>
@@ -53,7 +61,7 @@ function Home() {
                     className={cx('banner_image')}
                     to={routesConfig.product}
                     style={{
-                        backgroundImage: `url(https://mlbchinhhang.com/wp-content/uploads/2022/07/giay-mlb-chunky-high-1.jpg)`,
+                        backgroundImage: `url(https://fanatics.frgimages.com/new-york-yankees/wincraft-new-york-yankees-3-x-5-primary-logo-single-sided-flag_pi4889000_ff_4889610-1083412370ce510a4ba6_full.jpg?_hv=2&w=900)`,
                     }}
                 ></Button>
             </div>

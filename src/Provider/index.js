@@ -4,7 +4,10 @@ import swal from 'sweetalert';
 export const DataContext = createContext();
 
 function Provider({ children }) {
+    
+
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     // Hien thi san pham trong localStorage ra trang gio hang
     const [cart, setCart] = useState(() => {
@@ -16,10 +19,12 @@ function Provider({ children }) {
 
     // get product
     useEffect(() => {
+        setLoading(true);
         fetch(`https://sugarapitvq.onrender.com/api/product/all-product`)
             .then((res) => res.json())
             .then((prod) => {
                 setProducts(prod);
+                setLoading(false);
             });
     }, []);
 
@@ -61,6 +66,7 @@ function Provider({ children }) {
     // dung de truyen di cac component con trong toan App
     const value = {
         products: [products, setProducts],
+        loading: [loading, setLoading],
         cart: [cart, setCart],
         addCart: addCart,
     };

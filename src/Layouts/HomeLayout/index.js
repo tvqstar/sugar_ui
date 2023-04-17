@@ -7,8 +7,8 @@ import Slider from '../DefaultLayout/Slider';
 
 import styles from './HomeLayout.module.scss';
 
-const cx = classNames.bind(styles);
 function HomeLayout({ children }) {
+    const cx = classNames.bind(styles);
     return (
         <div className={cx('wrapper')}>
             <Header />

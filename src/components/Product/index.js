@@ -11,6 +11,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function Product({ data, addCart }) {
+
     return (
         <div className="col l-2-4 m-4 c-6">
             <div className={cx('product-item')}>
